@@ -6,6 +6,7 @@
     <title>ТехноДом – интернет-магазин бытовой техники</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Все стили без изменений */
         * {
             margin: 0;
             padding: 0;
@@ -25,7 +26,6 @@
             padding: 0 20px;
         }
         
-        /* Header */
         header {
             background-color: #fff;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
@@ -83,11 +83,10 @@
         .header-actions {
             display: flex;
             align-items: center;
-            position: relative;
+            gap: 20px;
         }
         
         .header-actions a {
-            margin-left: 20px;
             color: #2c3e50;
             text-decoration: none;
             display: flex;
@@ -121,38 +120,6 @@
             position: relative;
         }
         
-        #user-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-left: 20px;
-            cursor: pointer;
-        }
-        
-        #user-name {
-            font-weight: 600;
-            color: #2c3e50;
-            font-size: 14px;
-            max-width: 120px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .logout-btn {
-            background: none;
-            border: none;
-            color: #e74c3c;
-            cursor: pointer;
-            font-size: 12px;
-            margin-top: 2px;
-        }
-        
-        .logout-btn:hover {
-            text-decoration: underline;
-        }
-        
-        /* Navigation */
         nav {
             background-color: #2c3e50;
             padding: 0;
@@ -205,7 +172,6 @@
             display: block;
         }
         
-        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
@@ -244,12 +210,6 @@
             background-color: #2980b9;
         }
         
-        .btn-small {
-            padding: 8px 20px;
-            font-size: 14px;
-        }
-        
-        /* Categories */
         .section-title {
             text-align: center;
             margin-bottom: 40px;
@@ -329,6 +289,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
+            position: relative;
         }
         
         .product-card:hover {
@@ -362,6 +323,10 @@
             background-color: #2ecc71;
         }
         
+        .product-badge.hit {
+            background-color: #f39c12;
+        }
+        
         .product-info {
             padding: 20px;
         }
@@ -375,7 +340,16 @@
         .product-price {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .price-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .current-price {
@@ -388,7 +362,32 @@
             font-size: 16px;
             color: #95a5a6;
             text-decoration: line-through;
-            margin-left: 10px;
+        }
+        
+        .edit-price-btn {
+            background: none;
+            border: none;
+            color: #3498db;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 4px 8px;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        
+        .edit-price-btn:hover {
+            background-color: #eef2fd;
+            color: #2980b9;
+        }
+        
+        .admin-badge {
+            background-color: #e67e22;
+            color: white;
+            border-radius: 20px;
+            padding: 2px 8px;
+            font-size: 10px;
+            margin-left: 5px;
+            vertical-align: middle;
         }
         
         .product-rating {
@@ -412,7 +411,29 @@
             background-color: #27ae60;
         }
         
-        /* Секция описания магазина */
+        .delete-product-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+            z-index: 20;
+            opacity: 0.9;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .delete-product-btn:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+        
         .about-store {
             background-color: #fff;
             border-radius: 16px;
@@ -478,7 +499,6 @@
             color: #2c3e50;
         }
         
-        /* Features */
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -518,7 +538,6 @@
             font-size: 40px;
         }
         
-        /* Footer */
         footer {
             background-color: #2c3e50;
             color: white;
@@ -598,7 +617,6 @@
             font-size: 14px;
         }
         
-        /* Модальные окна */
         .modal {
             display: none;
             position: fixed;
@@ -639,7 +657,6 @@
             color: #95a5a6;
         }
         
-        /* Аутентификация */
         .auth-tabs {
             display: flex;
             border-bottom: 1px solid #ddd;
@@ -682,7 +699,7 @@
             color: #2c3e50;
         }
         
-        .form-group input {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #ddd;
@@ -691,7 +708,7 @@
             transition: border 0.2s;
         }
         
-        .form-group input:focus {
+        .form-group input:focus, .form-group select:focus {
             border-color: #3498db;
             outline: none;
         }
@@ -719,18 +736,11 @@
             background-color: #2980b9;
         }
         
-        /* Корзина - способы оплаты */
         .payment-method-section {
             margin: 25px 0;
             padding: 20px;
             background-color: #f9f9f9;
             border-radius: 8px;
-        }
-        
-        .payment-method-section h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-size: 18px;
         }
         
         .payment-option {
@@ -742,11 +752,6 @@
             border-radius: 6px;
             background-color: white;
             cursor: pointer;
-            transition: border 0.2s;
-        }
-        
-        .payment-option:hover {
-            border-color: #3498db;
         }
         
         .payment-option input[type="radio"] {
@@ -772,7 +777,6 @@
             text-align: center;
         }
         
-        /* Cart items */
         .cart-item {
             display: flex;
             align-items: center;
@@ -848,7 +852,184 @@
             font-size: 18px;
         }
         
-        /* Адаптивность */
+        .filters-panel {
+            display: none;
+            background-color: white;
+            border-radius: 16px;
+            padding: 20px 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f6;
+        }
+        
+        .filters-panel h3 {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .filters-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-end;
+            margin-bottom: 15px;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .filter-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+        
+        .filter-group input, .filter-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .filter-group input:focus, .filter-group select:focus {
+            border-color: #3498db;
+        }
+        
+        .price-range {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .reset-filters-btn, .reset-all-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .reset-all-btn {
+            background-color: #e67e22;
+        }
+        
+        .reset-filters-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .reset-all-btn:hover {
+            background-color: #d35400;
+        }
+        
+        .search-no-results {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            font-size: 18px;
+            color: #7f8c8d;
+        }
+        
+        .order-item {
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            background: #fefefe;
+        }
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #f8fafc;
+            border-bottom: 1px solid #eef2f6;
+            border-radius: 12px 12px 0 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .order-date {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        .order-total {
+            font-weight: 700;
+            color: #3498db;
+            font-size: 18px;
+        }
+        .order-payment {
+            font-size: 14px;
+            color: #5d6f83;
+            background: #eef2fa;
+            padding: 4px 12px;
+            border-radius: 30px;
+        }
+        .order-products {
+            padding: 15px 20px;
+        }
+        .order-product {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #edf2f7;
+            font-size: 14px;
+        }
+        .empty-orders {
+            text-align: center;
+            padding: 40px 20px;
+            color: #7f8c8d;
+        }
+        .booking-date, .status-badge {
+            font-size: 12px;
+            padding: 3px 12px;
+            border-radius: 20px;
+            color: white;
+        }
+        
+        .rec-product-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-right: 20px;
+        }
+        .rec-product-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8fafd;
+            border-radius: 16px;
+        }
+        .rec-product-details h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .rec-product-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .recommendation-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
         @media (max-width: 992px) {
             .search-bar {
                 order: 3;
@@ -856,17 +1037,11 @@
                 max-width: 100%;
                 margin: 20px 0 0;
             }
-            
             .header-top {
                 flex-wrap: wrap;
             }
-            
             .hero h1 {
                 font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
             }
         }
         
@@ -874,836 +1049,898 @@
             .nav-menu {
                 flex-direction: column;
             }
-            
             .dropdown {
                 position: static;
                 box-shadow: none;
                 background-color: #34495e;
             }
-            
             .hero {
                 padding: 70px 20px;
             }
-            
             .hero h1 {
                 font-size: 28px;
             }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .about-store {
-                padding: 30px 20px;
-            }
-            
-            .about-highlights {
+            .filters-row {
                 flex-direction: column;
-                gap: 15px;
+                align-items: stretch;
+            }
+            .reset-filters-btn, .reset-all-btn {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-top">
-                <div class="logo">
-                    <i class="fas fa-home"></i>
-                    <span>ТехноДом</span>
-                </div>
-                
+                <div class="logo"><i class="fas fa-home"></i><span>ТехноДом</span></div>
                 <div class="search-bar">
-                    <input type="text" placeholder="Поиск товаров...">
-                    <button><i class="fas fa-search"></i></button>
+                    <input type="text" id="search-input" placeholder="Поиск товаров... (например: холодильники, плиты, телевизоры)">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
                 </div>
-                
                 <div class="header-actions" id="header-actions">
-                    <a href="#" id="auth-link">
-                        <i class="fas fa-user"></i>
-                        <span id="auth-text">Войти</span>
-                    </a>
-                    <a href="#" class="cart-icon" id="open-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>Корзина</span>
-                        <span class="cart-count" id="cart-count">2</span>
-                    </a>
+                    <a href="#" id="auth-link"><i class="fas fa-user"></i><span id="auth-text">Войти</span></a>
+                    <a href="#" id="admin-login-link"><i class="fas fa-user-shield"></i><span>Админ</span></a>
+                    <a href="#" id="add-product-link" style="display: none;"><i class="fas fa-plus-circle"></i><span>Добавить товар</span></a>
+                    <a href="#" id="order-history-link" style="display: none;"><i class="fas fa-list-alt"></i><span>История</span></a>
+                    <a href="#" id="manage-bookings-link" style="display: none;"><i class="fas fa-calendar-alt"></i><span>Бронирования</span></a>
+                    <a href="#" id="recommendations-link"><i class="fas fa-star"></i><span>Рекомендации</span></a>
+                    <a href="#" class="cart-icon" id="open-cart"><i class="fas fa-shopping-cart"></i><span>Корзина</span><span class="cart-count" id="cart-count">2</span></a>
                 </div>
             </div>
         </div>
-        
         <nav>
             <div class="container">
                 <ul class="nav-menu">
                     <li><a href="#">Главная</a></li>
-                    <li>
-                        <a href="#">Каталог <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown">
-                            <li><a href="#">Холодильники</a></li>
-                            <li><a href="#">Стиральные машины</a></li>
-                            <li><a href="#">Плиты и духовки</a></li>
-                            <li><a href="#">Посудомоечные машины</a></li>
-                            <li><a href="#">Техника для кухни</a></li>
-                            <li><a href="#">Климатическая техника</a></li>
-                        </ul>
+                    <li><a href="#">Каталог <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown"><li><a href="#">Холодильники</a></li><li><a href="#">Стиральные машины</a></li><li><a href="#">Плиты и духовки</a></li><li><a href="#">Посудомоечные машины</a></li><li><a href="#">Техника для кухни</a></li><li><a href="#">Климатическая техника</a></li></ul>
                     </li>
-                    <li><a href="#">Акции</a></li>
-                    <li><a href="#">Доставка и оплата</a></li>
-                    <li><a href="#">Гарантия</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Акции</a></li><li><a href="#">Доставка и оплата</a></li><li><a href="#">Гарантия</a></li><li><a href="#">О нас</a></li><li><a href="#">Контакты</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     
-    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Бытовая техника для вашего дома</h1>
-            <p>Широкий выбор холодильников, стиральных машин, плит и другой техники от ведущих мировых производителей с гарантией и доставкой</p>
-            <a href="#" class="btn">Перейти в каталог</a>
-        </div>
+        <div class="container"><h1>Бытовая техника для вашего дома</h1><p>Широкий выбор холодильников, стиральных машин, плит и другой техники от ведущих мировых производителей с гарантией и доставкой</p><a href="#" class="btn">Перейти в каталог</a></div>
     </section>
     
-    <!-- Main Content -->
     <main class="container">
-        <!-- Categories -->
         <section class="categories-section">
-            <div class="section-title">
-                <h2>Популярные категории</h2>
-            </div>
+            <div class="section-title"><h2>Популярные категории</h2></div>
             <div class="categories">
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Холодильники">
-                    </div>
-                    <h3>Холодильники</h3>
-                </div>
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1626808642875-0aa545482dfb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Стиральные машины">
-                    </div>
-                    <h3>Стиральные машины</h3>
-                </div>
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Плиты и духовки">
-                    </div>
-                    <h3>Плиты и духовки</h3>
-                </div>
-                <div class="category-card">
-                    <div class="category-img">
-                        <img src="https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Посудомоечные машины">
-                    </div>
-                    <h3>Посудомоечные машины</h3>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Featured Products (расширенный до 8 товаров) -->
-        <section class="products-section">
-            <div class="section-title">
-                <h2>Рекомендуемые товары</h2>
-            </div>
-            
-            <div class="products">
-                <!-- Товар 1 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Холодильник Samsung">
-                        <span class="product-badge">Акция</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Холодильник Samsung RB33J3420SA</h3>
-                        <div class="product-price">
-                            <span class="current-price">64 990 ₽</span>
-                            <span class="old-price">72 500 ₽</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(124)</span>
-                        </div>
-                        <button class="add-to-cart" data-id="1" data-name="Холодильник Samsung RB33J3420SA" data-price="64990">Добавить в корзину</button>
-                    </div>
-                </div>
-                <!-- Товар 2 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Стиральная машина LG">
-                    </div>
-                    <div class="product-info">
-                        <h3>Стиральная машина LG F2J3NS0W</h3>
-                        <div class="product-price">
-                            <span class="current-price">34 990 ₽</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(89)</span>
-                        </div>
-                        <button class="add-to-cart" data-id="2" data-name="Стиральная машина LG F2J3NS0W" data-price="34990">Добавить в корзину</button>
-                    </div>
-                </div>
-                <!-- Товар 3 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Электрическая плита">
-                    </div>
-                    <div class="product-info">
-                        <h3>Электрическая плита Bosch PIE631FB1E</h3>
-                        <div class="product-price">
-                            <span class="current-price">42 500 ₽</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(67)</span>
-                        </div>
-                        <button class="add-to-cart" data-id="3" data-name="Электрическая плита Bosch PIE631FB1E" data-price="42500">Добавить в корзину</button>
-                    </div>
-                </div>
-                <!-- Товар 4 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Посудомоечная машина">
-                    </div>
-                    <div class="product-info">
-                        <h3>Посудомоечная машина Siemens SN235I00ME</h3>
-                        <div class="product-price">
-                            <span class="current-price">38 990 ₽</span>
-                            <span class="old-price">44 500 ₽</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(42)</span>
-                        </div>
-                        <button class="add-to-cart" data-id="4" data-name="Посудомоечная машина Siemens SN235I00ME" data-price="38990">Добавить в корзину</button>
-                    </div>
-                </div>
-                <!-- НОВЫЙ ТОВАР 5: Микроволновая печь -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1574267432553-4f5d668e9d1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Микроволновая печь Samsung">
-                        <span class="product-badge new">Новинка</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Микроволновая печь Samsung ME83KR</h3>
-                        <div class="product-price">
-                            <span class="current-price">12 990 ₽</span>
-                            <span class="old-price">15 990 ₽</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(35)</span>
-                        </div>
-                        <button class="add-to-cart" data-id="5" data-name="Микроволновая печь Samsung ME83KR" data-price="12990">Добавить в корзину</button>
-                    </div>
-                </div>
-                <!-- НОВЫЙ ТОВАР 6: Пылесос -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1558317374-687fb8cf1a6a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Пылесос Philips">
-                    </div>
-                    <div class="product-info">
-                        <h3>Пылесос Philips PowerPro FC9332</h3>
-                        <div class="product-price">
-                            <span class="current-price">18 990 ₽</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(78)</span>
-                        </div>
-                        <button class="add-to-cart" data-id="6" data-name="Пылесос Philips PowerPro FC9332" data-price="18990">Добавить в корзину</button>
-                    </div>
-                </div>
-                <!-- НОВЫЙ ТОВАР 7: Кофемашина -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1517668808822-9bba02a8f21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Кофемашина De'Longhi">
-                        <span class="product-badge">Акция</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Кофемашина De'Longhi Magnifica S</h3>
-                        <div class="product-price">
-                            <span class="current-price">45 990 ₽</span>
-                            <span class="old-price">52 900 ₽</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(112)</span>
-                        </div>
-                        <button class="add-to-cart" data-id="7" data-name="Кофемашина De'Longhi Magnifica S" data-price="45990">Добавить в корзину</button>
-                    </div>
-                </div>
-                <!-- НОВЫЙ ТОВАР 8: Телевизор LG -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Телевизор LG">
-                        <span class="product-badge new">Новинка</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Телевизор LG 55Nano86 4K</h3>
-                        <div class="product-price">
-                            <span class="current-price">52 990 ₽</span>
-                            <span class="old-price">64 990 ₽</span>
-                        </div>
-                        <div class="product-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(93)</span>
-                        </div>
-                        <button class="add-to-cart" data-id="8" data-name="Телевизор LG 55Nano86 4K" data-price="52990">Добавить в корзину</button>
-                    </div>
-                </div>
+                <div class="category-card"><div class="category-img"><img src="Без названия.jpg" alt="Холодильники"></div><h3>Холодильники</h3></div>
+                <div class="category-card"><div class="category-img"><img src="Без названия (1).jpg" alt="Стиральные машины"></div><h3>Стиральные машины</h3></div>
+                <div class="category-card"><div class="category-img"><img src="image.png" alt="Плиты и духовки"></div><h3>Плиты и духовки</h3></div>
+                <div class="category-card"><div class="category-img"><img src="image copy.png" alt="Посудомоечные машины"></div><h3>Посудомоечные машины</h3></div>
             </div>
         </section>
 
-        <!-- Секция описания магазина -->
-        <section class="about-store">
-            <h2>О магазине ТехноДом</h2>
-            <p>
-                <strong>ТехноДом</strong> — это не просто интернет-магазин бытовой техники. С 2020 года мы помогаем обустраивать дома и квартиры по всей России, предлагая только надёжную и современную технику от ведущих мировых брендов: Samsung, LG, Bosch, Siemens, Indesit и многих других.
-            </p>
-            <p>
-                Наша миссия — делать вашу жизнь комфортнее. Мы тщательно отбираем каждую модель, чтобы вы могли быть уверены в качестве, функциональности и долговечности покупки. В нашем каталоге — тысячи товаров: от компактных кухонных приборов до крупной бытовой техники.
-            </p>
-            <p>
-                Мы гордимся высоким уровнем сервиса: профессиональные консультанты помогут с выбором, доставка осуществляется точно в срок, а гарантийное обслуживание осуществляется во всех официальных сервисных центрах. Более 50 000 покупателей уже доверились нам — присоединяйтесь и вы!
-            </p>
-            
-            <div class="about-highlights">
-                <div class="highlight-item">
-                    <i class="fas fa-truck"></i>
-                    <span>Быстрая доставка по всей РФ</span>
+        <div class="filters-panel" id="filtersPanel">
+            <h3><i class="fas fa-sliders-h"></i> Уточнить результаты</h3>
+            <div class="filters-row">
+                <div class="filter-group">
+                    <label>Цена (₽)</label>
+                    <div class="price-range">
+                        <input type="number" id="priceFrom" placeholder="от" min="0" step="1000">
+                        <input type="number" id="priceTo" placeholder="до" min="0" step="1000">
+                    </div>
                 </div>
-                <div class="highlight-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Официальная гарантия 2 года</span>
+                <div class="filter-group">
+                    <label>Цвет</label>
+                    <select id="colorFilter">
+                        <option value="all">Любой</option>
+                        <option value="Белый">Белый</option>
+                        <option value="Черный">Черный</option>
+                        <option value="Серебристый">Серебристый</option>
+                        <option value="Синий">Синий</option>
+                    </select>
                 </div>
-                <div class="highlight-item">
-                    <i class="fas fa-credit-card"></i>
-                    <span>Удобная оплата: онлайн, наличные, рассрочка</span>
+                <div class="filter-group">
+                    <label>Бейдж</label>
+                    <select id="badgeFilter">
+                        <option value="all">Любой</option>
+                        <option value="Акция">Акция</option>
+                        <option value="Новинка">Новинка</option>
+                        <option value="Хит">Хит продаж</option>
+                        <option value="Топ-модель">Топ-модель</option>
+                    </select>
                 </div>
-                <div class="highlight-item">
-                    <i class="fas fa-undo-alt"></i>
-                    <span>Лёгкий возврат в течение 14 дней</span>
+                <div class="filter-group">
+                    <button class="reset-filters-btn" id="resetFiltersBtn">Сбросить фильтры</button>
                 </div>
+                <div class="filter-group">
+                    <button class="reset-all-btn" id="resetAllBtn">← Показать все товары</button>
+                </div>
+            </div>
+        </div>
+        
+        <section class="products-section">
+            <div class="section-title"><h2>Рекомендуемые товары</h2></div>
+            <div class="products" id="products-container">
+                <!-- товары будут отрисованы динамически -->
             </div>
         </section>
+
+        <section class="about-store">
+            <h2>О магазине ТехноДом</h2>
+            <p><strong>ТехноДом</strong> — это не просто интернет-магазин бытовой техники. С 2020 года мы помогаем обустраивать дома и квартиры по всей России, предлагая только надёжную и современную технику от ведущих мировых брендов: Samsung, LG, Bosch, Siemens, Indesit и многих других.</p>
+            <p>Наша миссия — делать вашу жизнь комфортнее. Мы тщательно отбираем каждую модель, чтобы вы могли быть уверены в качестве, функциональности и долговечности покупки. В нашем каталоге — тысячи товаров: от компактных кухонных приборов до крупной бытовой техники.</p>
+            <p>Мы гордимся высоким уровнем сервиса: профессиональные консультанты помогут с выбором, доставка осуществляется точно в срок, а гарантийное обслуживание осуществляется во всех официальных сервисных центрах. Более 50 000 покупателей уже доверились нам — присоединяйтесь и вы!</p>
+            <div class="about-highlights"><div class="highlight-item"><i class="fas fa-truck"></i><span>Быстрая доставка по всей РФ</span></div><div class="highlight-item"><i class="fas fa-shield-alt"></i><span>Официальная гарантия 2 года</span></div><div class="highlight-item"><i class="fas fa-credit-card"></i><span>Удобная оплата: онлайн, наличные, рассрочка</span></div><div class="highlight-item"><i class="fas fa-undo-alt"></i><span>Лёгкий возврат в течение 14 дней</span></div></div>
+        </section>
         
-        <!-- Features -->
         <section class="features">
-            <div class="feature">
-                <i class="fas fa-shipping-fast"></i>
-                <h3>Бесплатная доставка</h3>
-                <p>При заказе от 20 000 ₽</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Гарантия 2 года</h3>
-                <p>На всю технику официальная гарантия</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-credit-card"></i>
-                <h3>Рассрочка 0%</h3>
-                <p>Возможность покупки в рассрочку</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-headset"></i>
-                <h3>Поддержка 24/7</h3>
-                <p>Консультации и помощь в выборе</p>
-            </div>
-            <div class="feature" style="grid-column: span 4; margin-top: 20px;">
-                <h3>Принимаем к оплате</h3>
-                <div class="payment-icons">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-mir"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                    <i class="fas fa-money-bill-wave"></i>
-                </div>
-                <p style="margin-top: 15px;">Visa, Mastercard, Мир, PayPal, наличные</p>
-            </div>
+            <div class="feature"><i class="fas fa-shipping-fast"></i><h3>Бесплатная доставка</h3><p>При заказе от 20 000 ₽</p></div>
+            <div class="feature"><i class="fas fa-shield-alt"></i><h3>Гарантия 2 года</h3><p>На всю технику официальная гарантия</p></div>
+            <div class="feature"><i class="fas fa-credit-card"></i><h3>Рассрочка 0%</h3><p>Возможность покупки в рассрочку</p></div>
+            <div class="feature"><i class="fas fa-headset"></i><h3>Поддержка 24/7</h3><p>Консультации и помощь в выборе</p></div>
+            <div class="feature" style="grid-column: span 4; margin-top: 20px;"><h3>Принимаем к оплате</h3><div class="payment-icons"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-mir"></i><i class="fab fa-cc-paypal"></i><i class="fas fa-money-bill-wave"></i></div><p style="margin-top: 15px;">Visa, Mastercard, Мир, PayPal, наличные</p></div>
         </section>
     </main>
     
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>ТехноДом</h3>
-                    <p>Интернет-магазин бытовой техники №1 в России. Широкий ассортимент, гарантия качества, быстрая доставка.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-vk"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Категории</h3>
-                    <ul>
-                        <li><a href="#">Холодильники</a></li>
-                        <li><a href="#">Стиральные машины</a></li>
-                        <li><a href="#">Плиты и духовки</a></li>
-                        <li><a href="#">Посудомоечные машины</a></li>
-                        <li><a href="#">Техника для кухни</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Помощь</h3>
-                    <ul>
-                        <li><a href="#">Доставка и оплата</a></li>
-                        <li><a href="#">Гарантия и возврат</a></li>
-                        <li><a href="#">Вопросы и ответы</a></li>
-                        <li><a href="#">Сервисные центры</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Контакты</h3>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> 8-800-555-35-35</li>
-                        <li><i class="fas fa-envelope"></i> info@technodom.ru</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Техническая, 15</li>
-                        <li><i class="fas fa-clock"></i> Пн-Вс: 9:00-21:00</li>
-                    </ul>
-                </div>
+                <div class="footer-column"><h3>ТехноДом</h3><p>Интернет-магазин бытовой техники №1 в России. Широкий ассортимент, гарантия качества, быстрая доставка.</p><div class="social-icons"><a href="#"><i class="fab fa-vk"></i></a><a href="#"><i class="fab fa-telegram"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+                <div class="footer-column"><h3>Категории</h3><ul><li><a href="#">Холодильники</a></li><li><a href="#">Стиральные машины</a></li><li><a href="#">Плиты и духовки</a></li><li><a href="#">Посудомоечные машины</a></li><li><a href="#">Техника для кухни</a></li></ul></div>
+                <div class="footer-column"><h3>Помощь</h3><ul><li><a href="#">Доставка и оплата</a></li><li><a href="#">Гарантия и возврат</a></li><li><a href="#">Вопросы и ответы</a></li><li><a href="#">Сервисные центры</a></li><li><a href="#">Контакты</a></li></ul></div>
+                <div class="footer-column"><h3>Контакты</h3><ul><li><i class="fas fa-phone"></i> 8-800-555-35-35</li><li><i class="fas fa-envelope"></i> info@technodom.ru</li><li><i class="fas fa-map-marker-alt"></i> Москва, ул. Техническая, 15</li><li><i class="fas fa-clock"></i> Пн-Вс: 9:00-21:00</li></ul></div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 ТехноДом. Все права защищены.</p>
-            </div>
+            <div class="copyright"><p>&copy; 2025 ТехноДом. Все права защищены.</p></div>
         </div>
     </footer>
     
-    <!-- Модальное окно авторизации -->
-    <div class="modal" id="auth-modal">
-        <div class="modal-content" style="max-width: 500px;">
-            <div class="modal-header">
-                <h2>Личный кабинет</h2>
-                <button class="close-modal" id="close-auth">&times;</button>
-            </div>
-            <div class="auth-tabs">
-                <button class="auth-tab active" id="login-tab">Вход</button>
-                <button class="auth-tab" id="register-tab">Регистрация</button>
-            </div>
-            <div class="auth-form active" id="login-form">
-                <div class="form-group">
-                    <label for="login-email">Email</label>
-                    <input type="email" id="login-email" placeholder="example@mail.ru">
-                </div>
-                <div class="form-group">
-                    <label for="login-password">Пароль</label>
-                    <input type="password" id="login-password" placeholder="••••••••">
-                </div>
-                <div class="error-message" id="login-error"></div>
-                <button class="auth-btn" id="login-btn">Войти</button>
-            </div>
-            <div class="auth-form" id="register-form">
-                <div class="form-group">
-                    <label for="reg-name">Имя</label>
-                    <input type="text" id="reg-name" placeholder="Иван">
-                </div>
-                <div class="form-group">
-                    <label for="reg-email">Email</label>
-                    <input type="email" id="reg-email" placeholder="example@mail.ru">
-                </div>
-                <div class="form-group">
-                    <label for="reg-password">Пароль</label>
-                    <input type="password" id="reg-password" placeholder="минимум 6 символов">
-                </div>
-                <div class="form-group">
-                    <label for="reg-confirm">Подтверждение пароля</label>
-                    <input type="password" id="reg-confirm" placeholder="повторите пароль">
-                </div>
-                <div class="error-message" id="register-error"></div>
-                <button class="auth-btn" id="register-btn">Зарегистрироваться</button>
-            </div>
+    <!-- Модальные окна -->
+    <div class="modal" id="auth-modal"><div class="modal-content" style="max-width: 500px;"><div class="modal-header"><h2>Личный кабинет</h2><button class="close-modal" id="close-auth">&times;</button></div><div class="auth-tabs"><button class="auth-tab active" id="login-tab">Вход</button><button class="auth-tab" id="register-tab">Регистрация</button></div><div class="auth-form active" id="login-form"><div class="form-group"><label for="login-email">Email</label><input type="email" id="login-email" placeholder="example@mail.ru"></div><div class="form-group"><label for="login-password">Пароль</label><input type="password" id="login-password" placeholder="••••••••"></div><div class="error-message" id="login-error"></div><button class="auth-btn" id="login-btn">Войти</button></div><div class="auth-form" id="register-form"><div class="form-group"><label for="reg-name">Имя</label><input type="text" id="reg-name" placeholder="Иван"></div><div class="form-group"><label for="reg-email">Email</label><input type="email" id="reg-email" placeholder="example@mail.ru"></div><div class="form-group"><label for="reg-password">Пароль</label><input type="password" id="reg-password" placeholder="минимум 6 символов"></div><div class="form-group"><label for="reg-confirm">Подтверждение пароля</label><input type="password" id="reg-confirm" placeholder="повторите пароль"></div><div class="error-message" id="register-error"></div><button class="auth-btn" id="register-btn">Зарегистрироваться</button></div></div></div>
+    
+    <div class="modal" id="admin-modal"><div class="modal-content" style="max-width: 450px;"><div class="modal-header"><h2><i class="fas fa-user-shield"></i> Вход для администратора</h2><button class="close-modal" id="close-admin">&times;</button></div><div class="form-group"><label>Email / Логин</label><input type="text" id="admin-email" placeholder="admin@technodom.ru" value="admin@technodom.ru"></div><div class="form-group"><label>Пароль</label><input type="password" id="admin-password" placeholder="••••••••" value="admin123"></div><div class="error-message" id="admin-error"></div><button class="auth-btn" id="admin-login-btn">Войти как администратор</button><p style="margin-top: 15px; font-size: 13px; color: #7f8c8d;">Демо-данные: admin@technodom.ru / admin123</p></div></div>
+    
+    <div class="modal" id="cart-modal"><div class="modal-content"><div class="modal-header"><h2>Корзина</h2><button class="close-modal" id="close-cart">&times;</button></div><div class="cart-items" id="cart-items"></div><div class="payment-method-section"><h3><i class="fas fa-credit-card" style="margin-right: 8px;"></i> Способ оплаты</h3><div class="payment-option"><input type="radio" name="payment" id="pay-card" value="Картой онлайн" checked><label for="pay-card"><i class="fas fa-credit-card"></i> Картой онлайн (Visa, Mastercard, Мир)</label></div><div class="payment-option"><input type="radio" name="payment" id="pay-paypal" value="PayPal"><label for="pay-paypal"><i class="fab fa-cc-paypal"></i> PayPal</label></div><div class="payment-option"><input type="radio" name="payment" id="pay-installment" value="Рассрочка 0%"><label for="pay-installment"><i class="fas fa-calendar-alt"></i> Рассрочка 0%</label></div><div class="payment-option"><input type="radio" name="payment" id="pay-booking" value="Бронирование"><label for="pay-booking"><i class="fas fa-calendar-check"></i> Бронирование (дату подтвердит администратор)</label></div></div><div class="cart-total" id="cart-total">Итого: 0 ₽</div><button class="btn checkout-btn" id="checkout-btn">Оформить заказ</button></div></div>
+
+    <div class="modal" id="order-history-modal">
+        <div class="modal-content" style="max-width: 850px;">
+            <div class="modal-header"><h2>📋 История заказов</h2><button class="close-modal" id="close-order-history">&times;</button></div>
+            <div id="order-history-list">Загрузка...</div>
+        </div>
+    </div>
+
+    <div class="modal" id="booking-modal">
+        <div class="modal-content" style="max-width: 850px;">
+            <div class="modal-header"><h2><i class="fas fa-calendar-check"></i> Управление бронированиями</h2><button class="close-modal" id="close-booking-modal">&times;</button></div>
+            <div id="pending-bookings-list"></div>
         </div>
     </div>
     
-    <!-- Модальное окно корзины -->
-    <div class="modal" id="cart-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Корзина</h2>
-                <button class="close-modal" id="close-cart">&times;</button>
-            </div>
-            <div class="cart-items" id="cart-items"></div>
-            <div class="payment-method-section">
-                <h3><i class="fas fa-credit-card" style="margin-right: 8px;"></i> Способ оплаты</h3>
-                <div class="payment-option">
-                    <input type="radio" name="payment" id="pay-card" value="Картой онлайн" checked>
-                    <label for="pay-card"><i class="fas fa-credit-card"></i> Картой онлайн (Visa, Mastercard, Мир)</label>
-                </div>
-                <div class="payment-option">
-                    <input type="radio" name="payment" id="pay-cash" value="Наличными при получении">
-                    <label for="pay-cash"><i class="fas fa-money-bill-wave"></i> Наличными при получении</label>
-                </div>
-                <div class="payment-option">
-                    <input type="radio" name="payment" id="pay-paypal" value="PayPal">
-                    <label for="pay-paypal"><i class="fab fa-cc-paypal"></i> PayPal</label>
-                </div>
-                <div class="payment-option">
-                    <input type="radio" name="payment" id="pay-installment" value="Рассрочка 0%">
-                    <label for="pay-installment"><i class="fas fa-calendar-alt"></i> Рассрочка 0%</label>
-                </div>
-            </div>
-            <div class="cart-total" id="cart-total">Итого: 0 ₽</div>
-            <button class="btn checkout-btn" id="checkout-btn">Оформить заказ</button>
+    <div class="modal" id="add-product-modal">
+        <div class="modal-content" style="max-width: 550px;">
+            <div class="modal-header"><h2><i class="fas fa-plus-circle"></i> Добавить товар</h2><button class="close-modal" id="close-add-product">&times;</button></div>
+            <div class="form-group"><label>Название товара</label><input type="text" id="new-product-name" placeholder="Например: Робот-пылесос Xiaomi"></div>
+            <div class="form-group"><label>Цена (₽)</label><input type="number" id="new-product-price" placeholder="19990" step="100"></div>
+            <div class="form-group"><label>URL изображения</label><input type="text" id="new-product-image" placeholder="https://..."></div>
+            <div class="form-group"><label>Бейдж (необязательно)</label><select id="new-product-badge"><option value="">Нет</option><option value="Акция">Акция</option><option value="Новинка">Новинка</option><option value="Хит">Хит продаж</option><option value="Топ-модель">Топ-модель</option></select></div>
+            <div class="form-group"><label>Цвет (для фильтра)</label><select id="new-product-color"><option value="Белый">Белый</option><option value="Черный">Черный</option><option value="Серебристый">Серебристый</option><option value="Синий">Синий</option></select></div>
+            <button class="auth-btn" id="confirm-add-product-btn">➕ Добавить товар</button>
         </div>
     </div>
-    
+
+    <div class="modal" id="recommendation-modal">
+        <div class="modal-content" style="max-width: 550px;">
+            <div class="modal-header">
+                <h2><i class="fas fa-gift"></i> Рекомендация для вас</h2>
+                <button class="close-modal" id="close-recommendation">&times;</button>
+            </div>
+            <div id="recommendation-content"></div>
+            <div class="recommendation-buttons">
+                <button class="btn" id="rec-add-to-cart" style="background-color: #2ecc71;">Добавить в корзину</button>
+                <button class="btn" id="rec-another" style="background-color: #f39c12;">Другой товар</button>
+                <button class="btn" id="rec-close" style="background-color: #95a5a6;">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // ----------------------------------------------------------------
-        // ГЛОБАЛЬНЫЕ ДАННЫЕ И СОСТОЯНИЯ
-        // ----------------------------------------------------------------
+        // ---------------------------- Константы и хранилища ----------------------------
+        const STORAGE_PRODUCTS = 'technodom_products';
         const STORAGE_USERS = 'technodom_users';
         const STORAGE_CURRENT_USER = 'technodom_current_user';
-        
-        let cart = [
-            { id: 1, name: 'Холодильник Samsung RB33J3420SA', price: 64990, quantity: 1, image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80' },
-            { id: 2, name: 'Стиральная машина LG F2J3NS0W', price: 34990, quantity: 1, image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80' }
-        ];
+        const STORAGE_ORDERS = 'technodom_orders';
+        const STORAGE_PRICE_OVERRIDES = 'technodom_price_overrides';
         
         let currentUser = null;
+        let isAdmin = false;
+        let cart = [];
+        let products = [];
         
-        // ----------------------------------------------------------------
-        // ИНИЦИАЛИЗАЦИЯ ХРАНИЛИЩА ПОЛЬЗОВАТЕЛЕЙ
-        // ----------------------------------------------------------------
-        function initUserStorage() {
-            if (!localStorage.getItem(STORAGE_USERS)) {
-                const defaultUsers = [
-                    { id: 1, name: 'Тестовый', email: 'test@test.ru', password: '123456' }
-                ];
-                localStorage.setItem(STORAGE_USERS, JSON.stringify(defaultUsers));
-            }
-        }
-        initUserStorage();
-        
-        function getUsers() {
-            return JSON.parse(localStorage.getItem(STORAGE_USERS)) || [];
-        }
-        
-        function saveUsers(users) {
-            localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
-        }
-        
-        function findUserByEmail(email) {
-            const users = getUsers();
-            return users.find(user => user.email === email);
-        }
-        
-        function registerUser(name, email, password) {
-            const users = getUsers();
-            const newUser = {
-                id: users.length ? Math.max(...users.map(u => u.id)) + 1 : 1,
-                name: name,
-                email: email,
-                password: password
-            };
-            users.push(newUser);
-            saveUsers(users);
-            return newUser;
-        }
-        
-        function loginUser(email, password) {
-            const user = findUserByEmail(email);
-            if (user && user.password === password) return user;
-            return null;
-        }
-        
-        function loadCurrentUser() {
-            const stored = localStorage.getItem(STORAGE_CURRENT_USER);
+        // --- Загрузка товаров ---
+        function loadProductsFromStorage() {
+            const stored = localStorage.getItem(STORAGE_PRODUCTS);
             if (stored) {
-                try {
-                    currentUser = JSON.parse(stored);
-                    updateHeaderForUser();
-                } catch(e) { currentUser = null; }
-            }
-        }
-        
-        function setCurrentUser(user) {
-            currentUser = user;
-            if (user) localStorage.setItem(STORAGE_CURRENT_USER, JSON.stringify(user));
-            else localStorage.removeItem(STORAGE_CURRENT_USER);
-            updateHeaderForUser();
-        }
-        
-        function logout() {
-            setCurrentUser(null);
-            updateHeaderForUser();
-            closeAuthModal();
-        }
-        
-        // ----------------------------------------------------------------
-        // ОБНОВЛЕНИЕ ШАПКИ
-        // ----------------------------------------------------------------
-        function updateHeaderForUser() {
-            const authLink = document.getElementById('auth-link');
-            const authText = document.getElementById('auth-text');
-            if (currentUser) {
-                authLink.href = '#';
-                authLink.removeEventListener('click', openAuthModal);
-                authLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (confirm('Выйти из аккаунта?')) logout();
-                });
-                authText.textContent = currentUser.name || currentUser.email;
+                products = JSON.parse(stored);
             } else {
-                authLink.href = '#';
-                authLink.removeEventListener('click', logout);
-                authLink.addEventListener('click', openAuthModal);
-                authText.textContent = 'Войти';
+                products = [
+                    { id: 1, name: "Холодильник Samsung RB33J3420SA", price: 64990, image: "image copy 2.png", badge: "Акция", color: "Серебристый", oldPrice: 72500 },
+                    { id: 2, name: "Стиральная машина LG F2J3NS0W", price: 34990, image: "image copy 9.png", badge: "", color: "Белый", oldPrice: null },
+                    { id: 3, name: "Электрическая плита Bosch PIE631FB1E", price: 42500, image: "image copy 12.png", badge: "", color: "Черный", oldPrice: null },
+                    { id: 4, name: "Посудомоечная машина Siemens SN235I00ME", price: 38990, image: "image copy 15.png", badge: "", color: "Белый", oldPrice: 44500 },
+                    { id: 5, name: "Микроволновая печь Samsung ME83KR", price: 12990, image: "image copy 17.png", badge: "Новинка", color: "Серебристый", oldPrice: 15990 },
+                    { id: 6, name: "Пылесос Philips PowerPro FC9332", price: 18990, image: "image copy 18.png", badge: "", color: "Синий", oldPrice: null },
+                    { id: 7, name: "Кофемашина De'Longhi Magnifica S", price: 45990, image: "image copy 21.png", badge: "Акция", color: "Черный", oldPrice: 52900 },
+                    { id: 8, name: "Телевизор LG 55Nano86 4K", price: 52990, image: "image copy 22.png", badge: "Новинка", color: "Черный", oldPrice: 64990 },
+                    { id: 9, name: "Холодильник LG GC-B247SLUV", price: 79990, image: "image copy 7.png", badge: "Новинка", color: "Серебристый", oldPrice: 89900 },
+                    { id: 10, name: "Стиральная машина Bosch WAN28281BY", price: 41990, image: "image copy 10.png", badge: "Хит", color: "Белый", oldPrice: 48500 },
+                    { id: 11, name: "Электрическая плита Gorenje EC 534 WG", price: 37990, image: "image copy 13.png", badge: "Акция", color: "Черный", oldPrice: 44900 },
+                    { id: 12, name: "Посудомоечная машина Miele G 5210 SCU", price: 64990, image: "image copy 16.png", badge: "Новинка", color: "Белый", oldPrice: 72000 },
+                    { id: 13, name: "Холодильник Bosch Serie 4 KGN36VJ20", price: 58490, image: "image copy 8.png", badge: "Хит", color: "Серебристый", oldPrice: 64990 },
+                    { id: 14, name: "Стиральная машина Samsung WW90T554CAW EcoBubble", price: 46990, image: "image copy 11.png", badge: "Акция", color: "Белый", oldPrice: 54500 },
+                    { id: 15, name: "Электрическая плита Electrolux EKC95453BX", price: 49990, image: "image copy 14.png", badge: "Новинка", color: "Черный", oldPrice: 55500 },
+                    { id: 16, name: "Беспроводной пылесос Dyson V15 Detect Absolute", price: 67990, image: "image copy 19.png", badge: "Хит", color: "Синий", oldPrice: 79900 },
+                    { id: 17, name: "Робот-пылесос Roborock S7 MaxV Ultra", price: 94990, image: "image copy 20.png", badge: "Новинка", color: "Синий", oldPrice: 109990 },
+                    { id: 18, name: "Телевизор Samsung Neo QLED 55QN85C 4K", price: 89990, image: "image copy 23.png", badge: "Акция", color: "Черный", oldPrice: 112500 },
+                    { id: 19, name: "Телевизор Sony Bravia XR-55A80L OLED", price: 139990, image: "image copy 24.png", badge: "Топ-модель", color: "Черный", oldPrice: 159990 }
+                ];
+                localStorage.setItem(STORAGE_PRODUCTS, JSON.stringify(products));
             }
         }
         
-        // ----------------------------------------------------------------
-        // МОДАЛЬНОЕ ОКНО АВТОРИЗАЦИИ
-        // ----------------------------------------------------------------
-        const authModal = document.getElementById('auth-modal');
-        const closeAuthBtn = document.getElementById('close-auth');
-        const loginTab = document.getElementById('login-tab');
-        const registerTab = document.getElementById('register-tab');
-        const loginForm = document.getElementById('login-form');
-        const registerForm = document.getElementById('register-form');
-        const loginBtn = document.getElementById('login-btn');
-        const registerBtn = document.getElementById('register-btn');
-        const loginError = document.getElementById('login-error');
-        const registerError = document.getElementById('register-error');
-        
-        function openAuthModal(e) {
-            e.preventDefault();
-            authModal.style.display = 'flex';
-            loginTab.classList.add('active');
-            registerTab.classList.remove('active');
-            loginForm.classList.add('active');
-            registerForm.classList.remove('active');
-            loginError.textContent = '';
-            registerError.textContent = '';
+        function saveProductsToStorage() {
+            localStorage.setItem(STORAGE_PRODUCTS, JSON.stringify(products));
         }
         
-        function closeAuthModal() {
-            authModal.style.display = 'none';
+        // ИСПРАВЛЕНА ФУНКЦИЯ addProduct - теперь корректно создает новый товар со всеми полями
+        function addProduct(productData) {
+            const newId = products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 100;
+            const newProduct = {
+                id: newId,
+                name: productData.name,
+                price: productData.price,
+                image: productData.image,
+                badge: productData.badge || "",
+                color: productData.color || "Белый",
+                oldPrice: null
+            };
+            products.push(newProduct);
+            saveProductsToStorage();
+            renderProducts();
+            applyPriceOverrides();
+            if (typeof filterProducts === 'function') filterProducts();
+            return newProduct;
         }
         
-        loginTab.addEventListener('click', () => {
-            loginTab.classList.add('active');
-            registerTab.classList.remove('active');
-            loginForm.classList.add('active');
-            registerForm.classList.remove('active');
-            loginError.textContent = '';
-            registerError.textContent = '';
-        });
+        function deleteProduct(productId) {
+            products = products.filter(p => p.id !== productId);
+            saveProductsToStorage();
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+            renderProducts();
+            if (typeof filterProducts === 'function') filterProducts();
+        }
         
-        registerTab.addEventListener('click', () => {
-            registerTab.classList.add('active');
-            loginTab.classList.remove('active');
-            registerForm.classList.add('active');
-            loginForm.classList.remove('active');
-            loginError.textContent = '';
-            registerError.textContent = '';
-        });
+        // --- Отрисовка карточек товаров (с условием: для админа скрываем кнопку "В корзину") ---
+        function renderProducts() {
+            const container = document.getElementById('products-container');
+            if (!container) return;
+            container.innerHTML = '';
+            products.forEach(prod => {
+                const priceOverrides = getPriceOverrides();
+                let currentPrice = prod.price;
+                if (priceOverrides[prod.id]) currentPrice = priceOverrides[prod.id];
+                
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.setAttribute('data-id', prod.id);
+                card.setAttribute('data-price', currentPrice);
+                card.setAttribute('data-color', prod.color || 'Серебристый');
+                card.setAttribute('data-badge', prod.badge || 'none');
+                
+                // Условный рендер кнопки "Добавить в корзину" — скрываем для администратора
+                const addToCartButton = !isAdmin ? `<button class="add-to-cart" data-id="${prod.id}" data-name="${escapeHtml(prod.name)}" data-price="${currentPrice}">Добавить в корзину</button>` : '';
+                
+                card.innerHTML = `
+                    <div class="product-img">
+                        <img src="${prod.image}" alt="${prod.name}" onerror="this.src='https://via.placeholder.com/280x220?text=ТехноДом'">
+                        ${prod.badge ? `<span class="product-badge ${prod.badge === 'Новинка' ? 'new' : (prod.badge === 'Хит' ? 'hit' : '')}">${prod.badge}</span>` : ''}
+                        ${isAdmin ? `<button class="delete-product-btn" data-id="${prod.id}" title="Удалить товар"><i class="fas fa-trash-alt"></i></button>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <h3>${escapeHtml(prod.name)}</h3>
+                        <div class="product-price">
+                            <div class="price-wrapper">
+                                <span class="current-price">${currentPrice.toLocaleString()} ₽</span>
+                                ${prod.oldPrice ? `<span class="old-price">${prod.oldPrice.toLocaleString()} ₽</span>` : ''}
+                            </div>
+                            ${isAdmin ? `<button class="edit-price-btn" data-id="${prod.id}" title="Редактировать цену"><i class="fas fa-pen"></i></button>` : ''}
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            <span>(${Math.floor(Math.random() * 200) + 10})</span>
+                        </div>
+                        ${addToCartButton}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+            attachProductEvents();
+            if (isAdmin) {
+                attachAdminEditButtons();
+                attachDeleteButtons();
+            }
+            if (typeof filterProducts === 'function') filterProducts();
+        }
         
-        closeAuthBtn.addEventListener('click', closeAuthModal);
-        window.addEventListener('click', (e) => { if (e.target === authModal) closeAuthModal(); });
+        function escapeHtml(str) {
+            return str.replace(/[&<>]/g, function(m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
         
-        loginBtn.addEventListener('click', () => {
-            const email = document.getElementById('login-email').value.trim();
-            const password = document.getElementById('login-password').value.trim();
-            if (!email || !password) { loginError.textContent = 'Заполните все поля'; return; }
-            const user = loginUser(email, password);
-            if (user) {
-                setCurrentUser(user);
-                closeAuthModal();
-                alert(`Добро пожаловать, ${user.name || user.email}!`);
+        function attachProductEvents() {
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                btn.removeEventListener('click', addToCartHandler);
+                btn.addEventListener('click', addToCartHandler);
+            });
+        }
+        
+        function addToCartHandler(e) {
+            const btn = e.currentTarget;
+            const id = parseInt(btn.getAttribute('data-id'));
+            const name = btn.getAttribute('data-name');
+            let price = parseInt(btn.getAttribute('data-price'));
+            const product = products.find(p => p.id === id);
+            const image = product ? product.image : 'https://via.placeholder.com/80';
+            const existing = cart.find(item => item.id === id);
+            if (existing) existing.quantity++;
+            else cart.push({ id, name, price, quantity: 1, image });
+            updateCart();
+            alert(`${name} добавлен в корзину!`);
+        }
+        
+        // --- Переопределение цен ---
+        function getPriceOverrides() {
+            const stored = localStorage.getItem(STORAGE_PRICE_OVERRIDES);
+            return stored ? JSON.parse(stored) : {};
+        }
+        
+        function savePriceOverride(productId, newPrice) {
+            const overrides = getPriceOverrides();
+            overrides[productId] = newPrice;
+            localStorage.setItem(STORAGE_PRICE_OVERRIDES, JSON.stringify(overrides));
+        }
+        
+        function applyPriceOverrides() {
+            renderProducts();
+        }
+        
+        function attachAdminEditButtons() {
+            document.querySelectorAll('.edit-price-btn').forEach(btn => {
+                btn.removeEventListener('click', editPriceHandler);
+                btn.addEventListener('click', editPriceHandler);
+            });
+        }
+        
+        function editPriceHandler(e) {
+            e.stopPropagation();
+            const btn = e.currentTarget;
+            const productId = parseInt(btn.getAttribute('data-id'));
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            const currentPriceSpan = btn.closest('.product-card').querySelector('.current-price');
+            const currentPrice = parseInt(currentPriceSpan.innerText.replace(/[^0-9]/g, ''));
+            const newPriceRaw = prompt('Введите новую цену (в рублях):', currentPrice);
+            if (newPriceRaw === null) return;
+            let newPrice = parseInt(newPriceRaw.replace(/[^0-9]/g, ''));
+            if (isNaN(newPrice) || newPrice <= 0) {
+                alert('Некорректная цена');
+                return;
+            }
+            savePriceOverride(productId, newPrice);
+            for (let item of cart) {
+                if (item.id === productId) {
+                    item.price = newPrice;
+                }
+            }
+            updateCart();
+            renderProducts();
+            alert('Цена товара обновлена.');
+        }
+        
+        function attachDeleteButtons() {
+            document.querySelectorAll('.delete-product-btn').forEach(btn => {
+                btn.removeEventListener('click', deleteHandler);
+                btn.addEventListener('click', deleteHandler);
+            });
+        }
+        
+        function deleteHandler(e) {
+            e.stopPropagation();
+            const productId = parseInt(e.currentTarget.getAttribute('data-id'));
+            if (confirm('Удалить товар навсегда? Это действие необратимо.')) {
+                deleteProduct(productId);
+            }
+        }
+        
+        // --- Корзина ---
+        function loadCartFromStorage() {
+            const storedCart = localStorage.getItem('technodom_cart');
+            if (storedCart) {
+                cart = JSON.parse(storedCart);
             } else {
-                loginError.textContent = 'Неверный email или пароль';
+                cart = [];
             }
-        });
+        }
         
-        registerBtn.addEventListener('click', () => {
-            const name = document.getElementById('reg-name').value.trim();
-            const email = document.getElementById('reg-email').value.trim();
-            const password = document.getElementById('reg-password').value.trim();
-            const confirm = document.getElementById('reg-confirm').value.trim();
-            registerError.textContent = '';
-            if (!name || !email || !password || !confirm) { registerError.textContent = 'Заполните все поля'; return; }
-            if (password.length < 6) { registerError.textContent = 'Пароль должен быть не менее 6 символов'; return; }
-            if (password !== confirm) { registerError.textContent = 'Пароли не совпадают'; return; }
-            if (findUserByEmail(email)) { registerError.textContent = 'Пользователь с таким email уже существует'; return; }
-            const newUser = registerUser(name, email, password);
-            setCurrentUser(newUser);
-            closeAuthModal();
-            alert(`Регистрация успешна! Добро пожаловать, ${name}!`);
-        });
-        
-        // ----------------------------------------------------------------
-        // РАБОТА С КОРЗИНОЙ
-        // ----------------------------------------------------------------
-        const cartModal = document.getElementById('cart-modal');
-        const openCartBtn = document.getElementById('open-cart');
-        const closeCartBtn = document.getElementById('close-cart');
-        const cartCount = document.getElementById('cart-count');
-        const cartItemsContainer = document.getElementById('cart-items');
-        const cartTotal = document.getElementById('cart-total');
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        const checkoutBtn = document.getElementById('checkout-btn');
+        function saveCartToStorage() {
+            localStorage.setItem('technodom_cart', JSON.stringify(cart));
+        }
         
         function updateCart() {
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
-            cartItemsContainer.innerHTML = '';
-            let totalPrice = 0;
-            cart.forEach(item => {
-                totalPrice += item.price * item.quantity;
-                const cartItem = document.createElement('div');
-                cartItem.className = 'cart-item';
-                cartItem.setAttribute('data-id', item.id);
-                cartItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="cart-item-img">
-                    <div class="cart-item-info">
-                        <div class="cart-item-title">${item.name}</div>
-                        <div class="cart-item-price">${item.price.toLocaleString()} ₽</div>
-                    </div>
-                    <div class="cart-item-actions">
-                        <button class="quantity-btn minus">-</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="quantity-btn plus">+</button>
-                        <button class="remove-item"><i class="fas fa-trash"></i></button>
-                    </div>
-                `;
-                cartItemsContainer.appendChild(cartItem);
-            });
-            cartTotal.textContent = `Итого: ${totalPrice.toLocaleString()} ₽`;
-            attachCartItemEvents();
+            document.getElementById('cart-count').textContent = totalItems;
+            const cartItemsContainer = document.getElementById('cart-items');
+            if (cartItemsContainer) {
+                cartItemsContainer.innerHTML = '';
+                let totalPrice = 0;
+                cart.forEach(item => {
+                    totalPrice += item.price * item.quantity;
+                    const cartItemDiv = document.createElement('div');
+                    cartItemDiv.className = 'cart-item';
+                    cartItemDiv.setAttribute('data-id', item.id);
+                    cartItemDiv.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}" class="cart-item-img" onerror="this.src='https://via.placeholder.com/80'">
+                        <div class="cart-item-info">
+                            <div class="cart-item-title">${escapeHtml(item.name)}</div>
+                            <div class="cart-item-price">${item.price.toLocaleString()} ₽</div>
+                        </div>
+                        <div class="cart-item-actions">
+                            <button class="quantity-btn minus">-</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn plus">+</button>
+                            <button class="remove-item"><i class="fas fa-trash"></i></button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(cartItemDiv);
+                });
+                document.getElementById('cart-total').textContent = `Итого: ${totalPrice.toLocaleString()} ₽`;
+                attachCartEvents();
+            }
+            saveCartToStorage();
         }
         
-        function attachCartItemEvents() {
+        function attachCartEvents() {
             document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
-                btn.removeEventListener('click', handlePlus);
-                btn.addEventListener('click', handlePlus);
+                btn.removeEventListener('click', plusHandler);
+                btn.addEventListener('click', plusHandler);
             });
             document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
-                btn.removeEventListener('click', handleMinus);
-                btn.addEventListener('click', handleMinus);
+                btn.removeEventListener('click', minusHandler);
+                btn.addEventListener('click', minusHandler);
             });
             document.querySelectorAll('.remove-item').forEach(btn => {
-                btn.removeEventListener('click', handleRemove);
-                btn.addEventListener('click', handleRemove);
+                btn.removeEventListener('click', removeHandler);
+                btn.addEventListener('click', removeHandler);
             });
         }
         
-        function handlePlus(e) {
-            const cartItem = e.currentTarget.closest('.cart-item');
-            const itemId = parseInt(cartItem.getAttribute('data-id'));
-            const item = cart.find(i => i.id === itemId);
+        function plusHandler(e) {
+            const id = parseInt(e.currentTarget.closest('.cart-item').getAttribute('data-id'));
+            const item = cart.find(i => i.id === id);
             if (item) { item.quantity++; updateCart(); }
         }
-        
-        function handleMinus(e) {
-            const cartItem = e.currentTarget.closest('.cart-item');
-            const itemId = parseInt(cartItem.getAttribute('data-id'));
-            const item = cart.find(i => i.id === itemId);
+        function minusHandler(e) {
+            const id = parseInt(e.currentTarget.closest('.cart-item').getAttribute('data-id'));
+            const item = cart.find(i => i.id === id);
             if (item && item.quantity > 1) { item.quantity--; updateCart(); }
         }
-        
-        function handleRemove(e) {
-            const cartItem = e.currentTarget.closest('.cart-item');
-            const itemId = parseInt(cartItem.getAttribute('data-id'));
-            cart = cart.filter(i => i.id !== itemId);
+        function removeHandler(e) {
+            const id = parseInt(e.currentTarget.closest('.cart-item').getAttribute('data-id'));
+            cart = cart.filter(i => i.id !== id);
             updateCart();
         }
         
-        openCartBtn.addEventListener('click', (e) => { e.preventDefault(); cartModal.style.display = 'flex'; });
-        closeCartBtn.addEventListener('click', () => { cartModal.style.display = 'none'; });
-        window.addEventListener('click', (e) => { if (e.target === cartModal) cartModal.style.display = 'none'; });
+        // --- Пользователи и заказы ---
+        function initUserStorage() { 
+            if (!localStorage.getItem(STORAGE_USERS)) 
+                localStorage.setItem(STORAGE_USERS, JSON.stringify([{ id: 1, name: 'Тестовый', email: 'test@test.ru', password: '123456' }])); 
+            if (!localStorage.getItem(STORAGE_ORDERS))
+                localStorage.setItem(STORAGE_ORDERS, JSON.stringify({}));
+            const ordersMap = JSON.parse(localStorage.getItem(STORAGE_ORDERS));
+            let changed = false;
+            for (let uid in ordersMap) {
+                ordersMap[uid] = ordersMap[uid].map(order => {
+                    if (!order.status) { order.status = 'paid'; changed = true; }
+                    if (order.bookingDate === undefined) { order.bookingDate = null; changed = true; }
+                    return order;
+                });
+            }
+            if (changed) localStorage.setItem(STORAGE_ORDERS, JSON.stringify(ordersMap));
+        }
+        function getUsers() { return JSON.parse(localStorage.getItem(STORAGE_USERS)) || []; }
+        function findUserByEmail(email) { return getUsers().find(user => user.email === email); }
+        function registerUser(name, email, password) { const users = getUsers(); const newUser = { id: users.length ? Math.max(...users.map(u => u.id)) + 1 : 1, name, email, password }; users.push(newUser); localStorage.setItem(STORAGE_USERS, JSON.stringify(users)); return newUser; }
+        function loginUser(email, password) { const user = findUserByEmail(email); return (user && user.password === password) ? user : null; }
+        function saveOrderForUser(userId, order) { const ordersMap = JSON.parse(localStorage.getItem(STORAGE_ORDERS)) || {}; if (!ordersMap[userId]) ordersMap[userId] = []; ordersMap[userId].push(order); localStorage.setItem(STORAGE_ORDERS, JSON.stringify(ordersMap)); }
+        function getUserOrders(userId) { const ordersMap = JSON.parse(localStorage.getItem(STORAGE_ORDERS)) || {}; return ordersMap[userId] || []; }
+        function updateOrderStatus(userId, orderId, newStatus, bookingDate) {
+            const ordersMap = JSON.parse(localStorage.getItem(STORAGE_ORDERS) || '{}');
+            const userOrders = ordersMap[userId];
+            if (userOrders) {
+                const idx = userOrders.findIndex(o => o.id === orderId);
+                if (idx !== -1) {
+                    userOrders[idx].status = newStatus;
+                    if (bookingDate !== undefined) userOrders[idx].bookingDate = bookingDate;
+                    ordersMap[userId] = userOrders;
+                    localStorage.setItem(STORAGE_ORDERS, JSON.stringify(ordersMap));
+                    return true;
+                }
+            }
+            return false;
+        }
         
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const id = parseInt(this.getAttribute('data-id'));
-                const name = this.getAttribute('data-name');
-                const price = parseInt(this.getAttribute('data-price'));
-                const image = this.closest('.product-card').querySelector('img').src;
-                const existingItem = cart.find(item => item.id === id);
-                if (existingItem) existingItem.quantity++;
-                else cart.push({ id, name, price, quantity: 1, image });
-                updateCart();
-                alert(`${name} добавлен в корзину!`);
+        function renderOrderHistory() { 
+            const container = document.getElementById('order-history-list');
+            if (!currentUser && !isAdmin) { container.innerHTML = '<div class="empty-orders">Войдите в аккаунт, чтобы увидеть историю заказов.</div>'; return; }
+            let orders = [];
+            if (isAdmin) {
+                const ordersMap = JSON.parse(localStorage.getItem(STORAGE_ORDERS)) || {};
+                for (let userId in ordersMap) orders.push(...ordersMap[userId].map(o => ({ ...o, userId })));
+                orders.sort((a,b) => new Date(b.date) - new Date(a.date));
+            } else {
+                orders = getUserOrders(currentUser.id).slice().reverse();
+            }
+            if (orders.length === 0) { container.innerHTML = '<div class="empty-orders"><i class="fas fa-shopping-bag" style="font-size: 48px; margin-bottom: 10px; opacity:0.5;"></i><br>У вас пока нет заказов.</div>'; return; }
+            let html = '';
+            orders.forEach(order => {
+                let statusHtml = '';
+                if (order.status === 'pending') {
+                    statusHtml = '<span class="status-badge" style="background:#f39c12;">⏳ Ожидает подтверждения даты</span>';
+                } else if (order.status === 'confirmed' && order.bookingDate) {
+                    statusHtml = `<span class="booking-date" style="background:#2ecc71;">📅 Забронировано на ${order.bookingDate}</span>`;
+                } else {
+                    statusHtml = '<span class="status-badge" style="background:#3498db;">✅ Оплачено</span>';
+                }
+                html += `<div class="order-item"><div class="order-header"><div class="order-date">🕒 ${order.date}</div><div class="order-payment">💳 ${order.paymentMethod}</div><div class="order-total">💰 ${order.total.toLocaleString()} ₽</div>${statusHtml}</div><div class="order-products">${order.items.map(item => `<div class="order-product"><span class="order-product-name">${item.name}</span><span class="order-product-qty">x${item.quantity}</span><span class="order-product-price">${(item.price * item.quantity).toLocaleString()} ₽</span></div>`).join('')}</div></div>`;
             });
-        });
+            container.innerHTML = html;
+        }
         
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) { alert('Корзина пуста.'); return; }
-            const paymentRadio = document.querySelector('input[name="payment"]:checked');
-            const paymentMethod = paymentRadio ? paymentRadio.value : 'Картой онлайн';
-            if (!currentUser) {
-                alert('Для оформления заказа необходимо войти в личный кабинет.');
-                cartModal.style.display = 'none';
-                openAuthModal(new Event('click'));
+        function renderPendingBookings() {
+            const container = document.getElementById('pending-bookings-list');
+            if (!container) return;
+            const ordersMap = JSON.parse(localStorage.getItem(STORAGE_ORDERS) || '{}');
+            let pending = [];
+            for (let uid in ordersMap) {
+                ordersMap[uid].forEach(order => {
+                    if (order.status === 'pending' && order.paymentMethod === 'Бронирование') pending.push({ ...order, userId: parseInt(uid) });
+                });
+            }
+            if (pending.length === 0) { container.innerHTML = '<div class="empty-orders">Нет активных бронирований</div>'; return; }
+            let html = '';
+            pending.forEach(order => {
+                html += `<div class="order-item" data-order-id="${order.id}">
+                            <div class="order-header"><div>Заказ #${order.id} от ${order.date}</div><div>Сумма: ${order.total.toLocaleString()} ₽</div></div>
+                            <div class="order-products">${order.items.map(it => `<div>${it.name} x${it.quantity}</div>`).join('')}</div>
+                            <div class="form-group"><label>Дата бронирования:</label><input type="date" class="booking-date-input" data-order="${order.id}" data-user="${order.userId}"></div>
+                            <button class="btn confirm-booking" data-order="${order.id}" data-user="${order.userId}">Подтвердить и назначить дату</button>
+                            <hr></div>`;
+            });
+            container.innerHTML = html;
+            document.querySelectorAll('.confirm-booking').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const orderId = parseInt(btn.dataset.order);
+                    const userId = parseInt(btn.dataset.user);
+                    const dateInput = document.querySelector(`.booking-date-input[data-order="${orderId}"]`);
+                    const selectedDate = dateInput ? dateInput.value : '';
+                    if (!selectedDate) { alert('Выберите дату'); return; }
+                    if (updateOrderStatus(userId, orderId, 'confirmed', selectedDate)) {
+                        alert('Дата бронирования сохранена. Клиент увидит её в истории заказов.');
+                        renderPendingBookings();
+                        if (currentUser) renderOrderHistory();
+                    } else alert('Ошибка');
+                });
+            });
+        }
+        
+        function setCurrentUser(user) { currentUser = user; isAdmin = false; if (user) localStorage.setItem(STORAGE_CURRENT_USER, JSON.stringify(user)); else localStorage.removeItem(STORAGE_CURRENT_USER); updateUIForRole(); renderProducts(); }
+        function setAdminMode() { isAdmin = true; currentUser = null; localStorage.removeItem(STORAGE_CURRENT_USER); updateUIForRole(); renderProducts(); }
+        function logout() { setCurrentUser(null); isAdmin = false; updateUIForRole(); renderProducts(); }
+        
+        function updateUIForRole() {
+            const authText = document.getElementById('auth-text');
+            const historyLink = document.getElementById('order-history-link');
+            const addProductLink = document.getElementById('add-product-link');
+            const manageBookingsLink = document.getElementById('manage-bookings-link');
+            const cartIcon = document.getElementById('open-cart');
+            
+            // Управление видимостью корзины в шапке: для администратора скрываем
+            if (cartIcon) {
+                cartIcon.style.display = isAdmin ? 'none' : 'flex';
+            }
+            
+            if (isAdmin) {
+                document.getElementById('auth-link').onclick = (e) => { e.preventDefault(); if(confirm('Выйти из режима администратора?')) logout(); };
+                authText.innerHTML = 'Админ <span class="admin-badge">ADMIN</span>';
+                if (historyLink) historyLink.style.display = 'flex';
+                if (addProductLink) addProductLink.style.display = 'flex';
+                if (manageBookingsLink) manageBookingsLink.style.display = 'flex';
+            } else if (currentUser) {
+                document.getElementById('auth-link').onclick = (e) => { e.preventDefault(); if(confirm('Выйти из аккаунта?')) logout(); };
+                authText.textContent = currentUser.name || currentUser.email;
+                if (historyLink) historyLink.style.display = 'flex';
+                if (addProductLink) addProductLink.style.display = 'none';
+                if (manageBookingsLink) manageBookingsLink.style.display = 'none';
+            } else {
+                document.getElementById('auth-link').onclick = openAuthModal;
+                authText.textContent = 'Войти';
+                if (historyLink) historyLink.style.display = 'none';
+                if (addProductLink) addProductLink.style.display = 'none';
+                if (manageBookingsLink) manageBookingsLink.style.display = 'none';
+            }
+        }
+        
+        // --- Фильтры и поиск ---
+        let currentSearchTerm = '';
+        function filterProducts() {
+            const searchTerm = currentSearchTerm.trim().toLowerCase();
+            const priceFrom = document.getElementById('priceFrom').value ? parseInt(document.getElementById('priceFrom').value) : null;
+            const priceTo = document.getElementById('priceTo').value ? parseInt(document.getElementById('priceTo').value) : null;
+            const selectedColor = document.getElementById('colorFilter').value;
+            const selectedBadge = document.getElementById('badgeFilter').value;
+            const productCards = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+            productCards.forEach(card => {
+                const nameElem = card.querySelector('.product-info h3');
+                if (!nameElem) return;
+                const name = nameElem.innerText.toLowerCase();
+                const price = parseInt(card.getAttribute('data-price')) || 0;
+                const color = card.getAttribute('data-color') || '';
+                const badge = card.getAttribute('data-badge') || 'none';
+                let matchesSearch = (searchTerm === '' || name.includes(searchTerm));
+                let matchesPrice = true;
+                if (priceFrom !== null && price < priceFrom) matchesPrice = false;
+                if (priceTo !== null && price > priceTo) matchesPrice = false;
+                let matchesColor = (selectedColor === 'all' || color === selectedColor);
+                let matchesBadge = (selectedBadge === 'all' || badge === selectedBadge);
+                const show = matchesSearch && matchesPrice && matchesColor && matchesBadge;
+                card.style.display = show ? '' : 'none';
+                if (show) visibleCount++;
+            });
+            const noResultsDiv = document.querySelector('.search-no-results');
+            if (noResultsDiv) {
+                const filtersActive = (searchTerm !== '' || priceFrom !== null || priceTo !== null || selectedColor !== 'all' || selectedBadge !== 'all');
+                noResultsDiv.style.display = (visibleCount === 0 && filtersActive) ? 'block' : 'none';
+            }
+        }
+        
+        function performSearch() { currentSearchTerm = document.getElementById('search-input').value; document.getElementById('filtersPanel').style.display = 'block'; filterProducts(); }
+        function resetFilters() { document.getElementById('priceFrom').value = ''; document.getElementById('priceTo').value = ''; document.getElementById('colorFilter').value = 'all'; document.getElementById('badgeFilter').value = 'all'; filterProducts(); }
+        function resetToAllProducts() { document.getElementById('search-input').value = ''; currentSearchTerm = ''; resetFilters(); document.getElementById('filtersPanel').style.display = 'none'; filterProducts(); }
+        
+        // --- Рекомендации ---
+        let lastRecommendedProduct = null;
+        function getPurchasedProductIds() {
+            if (!currentUser) return [];
+            const orders = getUserOrders(currentUser.id);
+            const purchasedIds = new Set();
+            orders.forEach(order => { order.items.forEach(item => purchasedIds.add(item.id)); });
+            return Array.from(purchasedIds);
+        }
+        
+        function getRandomRecommendedProduct() {
+            const purchasedIds = getPurchasedProductIds();
+            let available = products.filter(p => !purchasedIds.includes(p.id));
+            if (available.length === 0) available = [...products];
+            if (available.length === 0) return null;
+            const randomIndex = Math.floor(Math.random() * available.length);
+            return available[randomIndex];
+        }
+        
+        function updateRecommendationModalContent(product) {
+            if (!product) {
+                document.getElementById('recommendation-content').innerHTML = '<p>К сожалению, пока нет доступных товаров для рекомендации.</p>';
                 return;
             }
-            let orderSummary = `✅ ЗАКАЗ ОФОРМЛЕН!\n\nПокупатель: ${currentUser.name || currentUser.email}\nСпособ оплаты: ${paymentMethod}\nТовары:\n`;
-            cart.forEach(item => { orderSummary += `- ${item.name} x${item.quantity} = ${(item.price * item.quantity).toLocaleString()} ₽\n`; });
-            const total = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
-            orderSummary += `\nИТОГО: ${total.toLocaleString()} ₽\n\nСпасибо за покупку в ТехноДом!`;
-            alert(orderSummary);
-            cart = [];
-            updateCart();
-            cartModal.style.display = 'none';
-        });
-        
-        // ----------------------------------------------------------------
-        // ПОИСК
-        // ----------------------------------------------------------------
-        const searchInput = document.querySelector('.search-bar input');
-        const searchButton = document.querySelector('.search-bar button');
-        function handleSearch() {
-            if (searchInput.value.trim()) alert(`Поиск товаров по запросу: ${searchInput.value}`);
-            searchInput.value = '';
+            const priceOverrides = getPriceOverrides();
+            let recPrice = product.price;
+            if (priceOverrides[product.id]) recPrice = priceOverrides[product.id];
+            const recContent = document.getElementById('recommendation-content');
+            recContent.innerHTML = `
+                <div class="rec-product-info">
+                    <img src="${product.image}" alt="${product.name}" class="rec-product-img" onerror="this.src='https://via.placeholder.com/120'">
+                    <div class="rec-product-details">
+                        <h3>${escapeHtml(product.name)}</h3>
+                        <div class="rec-product-price">${recPrice.toLocaleString()} ₽</div>
+                        ${product.badge ? `<span class="product-badge" style="position:static; display:inline-block; margin-top:8px;">${product.badge}</span>` : ''}
+                    </div>
+                </div>
+                <p style="margin: 10px 0;">Рекомендуем вам этот товар. Хотите добавить в корзину?</p>
+            `;
+            lastRecommendedProduct = { ...product, price: recPrice };
         }
-        searchButton.addEventListener('click', handleSearch);
-        searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') handleSearch(); });
         
-        // ----------------------------------------------------------------
-        // ИНИЦИАЛИЗАЦИЯ
-        // ----------------------------------------------------------------
-        loadCurrentUser();
-        updateCart();
-        document.getElementById('auth-link').addEventListener('click', openAuthModal);
-        if (currentUser) updateHeaderForUser();
+        function showRecommendationModal() {
+            if (!currentUser) {
+                alert('Пожалуйста, войдите в аккаунт, чтобы получать персональные рекомендации.');
+                openAuthModal();
+                return;
+            }
+            const recommendedProduct = getRandomRecommendedProduct();
+            if (!recommendedProduct) {
+                alert('Нет доступных товаров для рекомендации.');
+                return;
+            }
+            updateRecommendationModalContent(recommendedProduct);
+            document.getElementById('recommendation-modal').style.display = 'flex';
+        }
+        
+        function showAnotherRecommendation() {
+            const newProduct = getRandomRecommendedProduct();
+            if (newProduct) updateRecommendationModalContent(newProduct);
+            else { alert('Больше нет товаров для рекомендации'); document.getElementById('recommendation-modal').style.display = 'none'; }
+        }
+        
+        function addRecommendedToCart() {
+            if (lastRecommendedProduct) {
+                const existing = cart.find(item => item.id === lastRecommendedProduct.id);
+                if (existing) existing.quantity++;
+                else cart.push({ id: lastRecommendedProduct.id, name: lastRecommendedProduct.name, price: lastRecommendedProduct.price, quantity: 1, image: lastRecommendedProduct.image });
+                updateCart();
+                alert(`${lastRecommendedProduct.name} добавлен в корзину!`);
+            }
+            document.getElementById('recommendation-modal').style.display = 'none';
+            lastRecommendedProduct = null;
+        }
+        
+        function closeRecommendationModal() {
+            document.getElementById('recommendation-modal').style.display = 'none';
+            lastRecommendedProduct = null;
+        }
+        
+        // --- Модальные окна и инициализация ---
+        function openAddProductModal(e) { e.preventDefault(); document.getElementById('add-product-modal').style.display = 'flex'; }
+        function closeAddProductModal() { document.getElementById('add-product-modal').style.display = 'none'; }
+        
+        // ИСПРАВЛЕНА ФУНКЦИЯ ОБРАБОТКИ ДОБАВЛЕНИЯ ТОВАРА
+        function handleAddProduct() {
+            const name = document.getElementById('new-product-name').value.trim();
+            const price = parseFloat(document.getElementById('new-product-price').value);
+            const image = document.getElementById('new-product-image').value.trim();
+            const badge = document.getElementById('new-product-badge').value;
+            const color = document.getElementById('new-product-color').value;
+            
+            if (!name) {
+                alert('Введите название товара');
+                return;
+            }
+            if (isNaN(price) || price <= 0) {
+                alert('Введите корректную цену');
+                return;
+            }
+            if (!image) {
+                alert('Введите URL изображения');
+                return;
+            }
+            
+            const newProduct = addProduct({
+                name: name,
+                price: price,
+                image: image,
+                badge: badge,
+                color: color
+            });
+            
+            alert(`Товар "${newProduct.name}" успешно добавлен!`);
+            closeAddProductModal();
+            // Очищаем поля формы
+            document.getElementById('new-product-name').value = '';
+            document.getElementById('new-product-price').value = '';
+            document.getElementById('new-product-image').value = '';
+            document.getElementById('new-product-badge').value = '';
+            document.getElementById('new-product-color').value = 'Белый';
+        }
+        
+        function initModals() {
+            const authModal = document.getElementById('auth-modal');
+            const adminModal = document.getElementById('admin-modal');
+            const cartModal = document.getElementById('cart-modal');
+            const orderModal = document.getElementById('order-history-modal');
+            const addModal = document.getElementById('add-product-modal');
+            const bookingModal = document.getElementById('booking-modal');
+            const recModal = document.getElementById('recommendation-modal');
+            document.getElementById('close-auth')?.addEventListener('click', () => authModal.style.display = 'none');
+            document.getElementById('close-admin')?.addEventListener('click', () => adminModal.style.display = 'none');
+            document.getElementById('close-cart')?.addEventListener('click', () => cartModal.style.display = 'none');
+            document.getElementById('close-order-history')?.addEventListener('click', () => orderModal.style.display = 'none');
+            document.getElementById('close-add-product')?.addEventListener('click', closeAddProductModal);
+            document.getElementById('close-booking-modal')?.addEventListener('click', () => bookingModal.style.display = 'none');
+            document.getElementById('close-recommendation')?.addEventListener('click', closeRecommendationModal);
+            document.getElementById('rec-close')?.addEventListener('click', closeRecommendationModal);
+            document.getElementById('rec-add-to-cart')?.addEventListener('click', addRecommendedToCart);
+            document.getElementById('rec-another')?.addEventListener('click', showAnotherRecommendation);
+            
+            window.addEventListener('click', (e) => { 
+                if (e.target === authModal) authModal.style.display = 'none';
+                if (e.target === adminModal) adminModal.style.display = 'none';
+                if (e.target === cartModal) cartModal.style.display = 'none';
+                if (e.target === orderModal) orderModal.style.display = 'none';
+                if (e.target === addModal) addModal.style.display = 'none';
+                if (e.target === bookingModal) bookingModal.style.display = 'none';
+                if (e.target === recModal) recModal.style.display = 'none';
+            });
+            document.getElementById('open-cart')?.addEventListener('click', (e) => { e.preventDefault(); cartModal.style.display = 'flex'; });
+            document.getElementById('order-history-link')?.addEventListener('click', (e) => { e.preventDefault(); if (!currentUser && !isAdmin) { alert('Войдите в аккаунт'); return; } renderOrderHistory(); orderModal.style.display = 'flex'; });
+            document.getElementById('manage-bookings-link')?.addEventListener('click', (e) => { e.preventDefault(); if (!isAdmin) { alert('Только для администратора'); return; } renderPendingBookings(); bookingModal.style.display = 'flex'; });
+            document.getElementById('add-product-link')?.addEventListener('click', openAddProductModal);
+            document.getElementById('auth-link')?.addEventListener('click', openAuthModal);
+            document.getElementById('admin-login-link')?.addEventListener('click', (e) => { e.preventDefault(); adminModal.style.display = 'flex'; });
+            document.getElementById('admin-login-btn')?.addEventListener('click', () => { const email = document.getElementById('admin-email').value.trim(); const pass = document.getElementById('admin-password').value.trim(); if (email === 'admin@technodom.ru' && pass === 'admin123') { setAdminMode(); adminModal.style.display = 'none'; alert('Добро пожаловать, администратор!'); } else { document.getElementById('admin-error').textContent = 'Неверные данные'; } });
+            document.getElementById('login-btn')?.addEventListener('click', () => { const email = document.getElementById('login-email').value.trim(); const pass = document.getElementById('login-password').value.trim(); const user = loginUser(email, pass); if (user) { setCurrentUser(user); authModal.style.display = 'none'; alert(`Добро пожаловать, ${user.name}!`); } else { document.getElementById('login-error').textContent = 'Неверный email или пароль'; } });
+            document.getElementById('register-btn')?.addEventListener('click', () => { const name = document.getElementById('reg-name').value.trim(); const email = document.getElementById('reg-email').value.trim(); const pass = document.getElementById('reg-password').value.trim(); const confirm = document.getElementById('reg-confirm').value.trim(); if (!name || !email || !pass || !confirm) { document.getElementById('register-error').textContent = 'Заполните все поля'; return; } if (pass.length < 6) { document.getElementById('register-error').textContent = 'Пароль минимум 6 символов'; return; } if (pass !== confirm) { document.getElementById('register-error').textContent = 'Пароли не совпадают'; return; } if (findUserByEmail(email)) { document.getElementById('register-error').textContent = 'Email уже используется'; return; } const newUser = registerUser(name, email, pass); setCurrentUser(newUser); authModal.style.display = 'none'; alert(`Регистрация успешна!`); });
+            
+            document.getElementById('recommendations-link')?.addEventListener('click', (e) => { e.preventDefault(); showRecommendationModal(); });
+            
+            // Привязываем обработчик к кнопке добавления товара
+            const confirmAddBtn = document.getElementById('confirm-add-product-btn');
+            if (confirmAddBtn) {
+                confirmAddBtn.removeEventListener('click', handleAddProduct);
+                confirmAddBtn.addEventListener('click', handleAddProduct);
+            }
+            
+            document.getElementById('checkout-btn')?.addEventListener('click', () => {
+                if (cart.length === 0) { alert('Корзина пуста'); return; }
+                const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value || 'Картой онлайн';
+                if (!currentUser && !isAdmin) { alert('Для оформления заказа войдите в аккаунт'); cartModal.style.display = 'none'; openAuthModal(new Event('click')); return; }
+                if (isAdmin) { alert('Администратор не может оформлять заказы'); return; }
+                const total = cart.reduce((s,i) => s + i.price * i.quantity, 0);
+                const order = { id: Date.now(), date: new Date().toLocaleString(), items: cart.map(i => ({ id: i.id, name: i.name, price: i.price, quantity: i.quantity })), total, paymentMethod, status: (paymentMethod === 'Бронирование') ? 'pending' : 'paid', bookingDate: null };
+                saveOrderForUser(currentUser.id, order);
+                const purchasedItemsCopy = [...cart];
+                if (paymentMethod === 'Бронирование') alert(`Заказ оформлен как бронирование. Администратор назначит дату получения.`);
+                else alert(`Заказ оформлен! Сумма: ${total.toLocaleString()} ₽. Спасибо за покупку!`);
+                cart = []; updateCart(); cartModal.style.display = 'none';
+                if (purchasedItemsCopy.length > 0) setTimeout(() => showRecommendationModal(), 300);
+            });
+            
+            const loginTab = document.getElementById('login-tab');
+            const registerTab = document.getElementById('register-tab');
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            if (loginTab && registerTab && loginForm && registerForm) {
+                loginTab.addEventListener('click', () => { loginTab.classList.add('active'); registerTab.classList.remove('active'); loginForm.classList.add('active'); registerForm.classList.remove('active'); });
+                registerTab.addEventListener('click', () => { registerTab.classList.add('active'); loginTab.classList.remove('active'); registerForm.classList.add('active'); loginForm.classList.remove('active'); });
+            }
+        }
+        
+        function openAuthModal(e) { if(e) e.preventDefault(); document.getElementById('auth-modal').style.display = 'flex'; }
+        
+        function init() {
+            loadProductsFromStorage();
+            loadCartFromStorage();
+            initUserStorage();
+            const storedUser = localStorage.getItem(STORAGE_CURRENT_USER);
+            if (storedUser) { currentUser = JSON.parse(storedUser); isAdmin = false; }
+            else { currentUser = null; isAdmin = false; }
+            renderProducts();
+            updateCart();
+            updateUIForRole();
+            initModals();
+            document.getElementById('search-btn')?.addEventListener('click', performSearch);
+            document.getElementById('search-input')?.addEventListener('keypress', (e) => { if (e.key === 'Enter') performSearch(); });
+            document.getElementById('resetFiltersBtn')?.addEventListener('click', resetFilters);
+            document.getElementById('resetAllBtn')?.addEventListener('click', resetToAllProducts);
+            document.getElementById('priceFrom')?.addEventListener('input', filterProducts);
+            document.getElementById('priceTo')?.addEventListener('input', filterProducts);
+            document.getElementById('colorFilter')?.addEventListener('change', filterProducts);
+            document.getElementById('badgeFilter')?.addEventListener('change', filterProducts);
+            const noDiv = document.createElement('div'); noDiv.className = 'search-no-results'; noDiv.style.display = 'none'; noDiv.innerHTML = '<i class="fas fa-search"></i><br>По вашему запросу и фильтрам ничего не найдено.'; document.getElementById('products-container')?.parentNode.insertBefore(noDiv, document.getElementById('products-container')?.nextSibling);
+            filterProducts();
+        }
+        
+        init();
     </script>
 </body>
 </html>
