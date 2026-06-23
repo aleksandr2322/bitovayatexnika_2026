@@ -1,0 +1,14 @@
+{
+  "id": 15,
+  "name": "Новый товар",
+  "price": 19990,
+  "image": "https://...",
+  "badge": "Новинка",
+  "color": "Красный",
+  "oldPrice": 24990,
+  "rating": 0,
+  "reviews": 0,
+  "description": "Описание нового товара",
+  "category": "Категория",
+  "inStock": true
+}

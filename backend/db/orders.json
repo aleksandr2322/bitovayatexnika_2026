@@ -1,0 +1,94 @@
+{
+  "1": [
+    {
+      "id": 1700000000001,
+      "date": "2026-06-20T14:30:00Z",
+      "items": [
+        {
+          "id": 1,
+          "name": "Холодильник Samsung RB33J3420SA",
+          "price": 64990,
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "name": "Микроволновая печь Samsung ME83KR",
+          "price": 12990,
+          "quantity": 1
+        }
+      ],
+      "total": 77980,
+      "paymentMethod": "Картой онлайн",
+      "status": "paid",
+      "bookingDate": null,
+      "deliveryAddress": "Москва, ул. Тестовая, д. 1"
+    },
+    {
+      "id": 1700000000002,
+      "date": "2026-06-21T09:15:00Z",
+      "items": [
+        {
+          "id": 7,
+          "name": "Кофемашина De'Longhi Magnifica S",
+          "price": 45990,
+          "quantity": 1
+        }
+      ],
+      "total": 45990,
+      "paymentMethod": "Бронирование",
+      "status": "pending",
+      "bookingDate": null,
+      "deliveryAddress": "Москва, ул. Тестовая, д. 1"
+    }
+  ],
+  "2": [
+    {
+      "id": 1700000000003,
+      "date": "2026-06-19T16:45:00Z",
+      "items": [
+        {
+          "id": 2,
+          "name": "Стиральная машина LG F2J3NS0W",
+          "price": 34990,
+          "quantity": 1
+        },
+        {
+          "id": 6,
+          "name": "Пылесос Philips PowerPro FC9332",
+          "price": 18990,
+          "quantity": 1
+        },
+        {
+          "id": 8,
+          "name": "Телевизор LG 55Nano86 4K",
+          "price": 52990,
+          "quantity": 1
+        }
+      ],
+      "total": 106970,
+      "paymentMethod": "Рассрочка 0%",
+      "status": "paid",
+      "bookingDate": null,
+      "deliveryAddress": "Москва, ул. Техническая, д. 15"
+    }
+  ],
+  "3": [
+    {
+      "id": 1700000000004,
+      "date": "2026-06-22T11:00:00Z",
+      "items": [
+        {
+          "id": 4,
+          "name": "Посудомоечная машина Siemens SN235I00ME",
+          "price": 38990,
+          "quantity": 1
+        }
+      ],
+      "total": 38990,
+      "paymentMethod": "Бронирование",
+      "status": "confirmed",
+      "bookingDate": "2026-07-01",
+      "deliveryAddress": "Санкт-Петербург, ул. Центральная, д. 10"
+    }
+  ]
+}
